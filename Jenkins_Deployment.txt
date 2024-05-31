@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_DEFAULT_REGION = 'us-east-1'
+        TF_VAR_access_key = credentials('AKIAUT4F53QKSDLVXEVC')
+        TF_VAR_secret_key = credentials('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')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/atifpasha44/Jenkins_Terraform.git'
+            }
+        }
+
+        stage('Init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+
+        stage('Plan') {
+            steps {
+                sh 'terraform plan -out=tfplan'
+            }
+        }
+
+        stage('Apply') {
+            steps {
+                sh 'terraform apply tfplan'
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
