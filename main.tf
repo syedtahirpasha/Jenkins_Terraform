@@ -34,8 +34,8 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-resource "aws_ecs_cluster" "Container_Jenkins" {
-  name = "Container_Jenkins"
+resource "aws_ecs_cluster" "Cluster_Jenkins" {
+  name = "Cluster_Jenkins"
 }
 
 resource "aws_ecs_task_definition" "Cluster_Jenkins" {
