@@ -15,7 +15,7 @@ agent  any
                  script{
                         dir("terraform")
                         {
-                            git "https://github.com/atifpasha44/Jenkins_Terraform.git"
+                            git "https://github.com/syedtahirpasha/Jenkins_Terraform.git"
                         }
                     }
                 }
