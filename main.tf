@@ -38,8 +38,8 @@ resource "aws_ecs_cluster" "Container_Jenkins" {
   name = "Container_Jenkins"
 }
 
-resource "aws_ecs_task_definition" "Container_Jenkins" {
-  family                   = "Container_Jenkins"
+resource "aws_ecs_task_definition" "Cluster_Jenkins" {
+  family                   = "Cluster_Jenkins"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
