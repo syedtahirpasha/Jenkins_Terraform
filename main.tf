@@ -47,7 +47,7 @@ resource "aws_ecs_task_definition" "Cluster_Jenkins" {
   cpu                      = "256"
 
   container_definitions = jsonencode([{
-    name  = "Container_test"
+    name  = "Cluster_Jenkins"
     image = "nginx"
     essential = true
     portMappings = [{
@@ -59,8 +59,8 @@ resource "aws_ecs_task_definition" "Cluster_Jenkins" {
 
 resource "aws_ecs_service" "Cluster_Jenkins" {
   name            = "Cluster_Jenkins"
-  cluster         = aws_ecs_cluster.Container_Jenkins.id
-  task_definition = aws_ecs_task_definition.Container_Jenkins.arn
+  cluster         = aws_ecs_cluster.Cluster_Jenkins.id
+  task_definition = aws_ecs_task_definition.Cluster_Jenkins.arn
   desired_count   = 1
   launch_type     = "FARGATE"
   network_configuration {
